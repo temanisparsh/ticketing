@@ -9,11 +9,11 @@
         <div class="container">
             {% if post %}
             {% if success %}
-                    <div sryle="margin: 20px;" class="alert alert-success" role="alert">
+                    <div  class="alert alert-success" role="alert">
                         Ticket for {{event.name}} was added to Cart!
                     </div>
                     {% else %}
-                    <div sryle="margin: 20px;" class="alert alert-danger" role="alert">
+                    <div class="alert alert-danger" role="alert">
                         Ticket for {{event.name}} has been added/booked before!
                     </div>
             {% endif %}
@@ -39,7 +39,7 @@
                         <form method="post">
                             {% csrf_token %}
                             <div class="form-group">
-                                <button class="btn btn-primary btn-block" type="submit">Add Ticket to Cart</button>
+                                <button style="background-color: #3498db; border: none;" class="btn btn-primary btn-block" type="submit">Add Ticket to Cart</button>
                             </div>
                         </form>
                     </div>

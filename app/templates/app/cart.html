@@ -3,6 +3,12 @@
 
 
 {% block content %}
+<style>
+    body {
+        background-color: white;;
+        background-image: linear-gradient(to bottom right,#0051ff, rgb(20, 231, 161));
+    }
+</style>
     <div class="container" style="margin: 30px 0px;">
         {% if empty %}
             {% if payment %}
@@ -17,13 +23,14 @@
             {% else %}
                 <div style="text-align: center;" class="jumbotron text-light">
                     <h4>Your Cart is Empty!</h4>
+                    <h6 style="color: white;" class=""><a href="/events">Click here</a> to explore our events</h6>
                 </div>
             {% endif %}
         {% else %}
         <div class="row">
             <div class="col-12 col-lg-6 offset-lg-4">
                 {% for event in events %}
-                    <div class="card shadow mb-3">
+                    <div class="card shadow mb-3" style="background-color: #2c3e50;">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-4 text-center"><img class="img-fluid border rounded shadow" src="/media/{{event.event.image}}"></div>
@@ -47,13 +54,13 @@
                                 <p><i class="fa fa-rupee"></i>{{totalcost}}</p>
                             </div>
                         </div>
-                        <hr style="background-color: #323232;">
+                        <hr style="background-color: #ffffff;">
                         <div class="row">
                             <div class="col text-right">
                                 <form method="post">
                                     {% csrf_token %}
                                     <div class="form-group">
-                                        <button class="btn btn-primary btn-block" type="submit">Pay Now!</button>
+                                        <button style="background-color: #3498db; border: none;" class="btn btn-primary btn-block" type="submit">Pay Now!</button>
                                     </div>
                                 </form>
                             </div>
