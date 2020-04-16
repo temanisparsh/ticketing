@@ -1,0 +1,51 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    
+    <div class="article-clean">
+        
+        <div class="container">
+            {% if post %}
+            {% if success %}
+                    <div sryle="margin: 20px;" class="alert alert-success" role="alert">
+                        Ticket for {{event.name}} was added to Cart!
+                    </div>
+                    {% else %}
+                    <div sryle="margin: 20px;" class="alert alert-danger" role="alert">
+                        Ticket for {{event.name}} has been added/booked before!
+                    </div>
+            {% endif %}
+            {% endif %}
+            <div class="row">
+                <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
+                    
+                    <div class="intro">
+                        <h1 class="text-center">{{event.name}}</h1>
+                        
+                        <p class="text-center"><span class="by">by</span> <a href="{% url "category" pk=event.category.pk %}">{{event.category.name}}</a><span class="date"></span></p>                    
+                        <img class="img-fluid" src="/media/{{event.image}}"></div>
+                    <div class="text">
+                        <p>
+                            {{event.descirption}}
+                        </p>
+                        <p>Fee: {{event.fee}}</p>
+                        <p>Prize: Rs. {{event.prize}}</p>
+                        <p>Date: {{event.date}}</p>
+                        <p>Number of People: {{event.num}}</p>
+                        <figure></figure>
+
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-block" type="submit">Add Ticket to Cart</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="container" style="margin: 30px 0px;">
+        {% if empty %}
+            {% if payment %}
+                <div style="margin: 20px;" class="alert alert-success" role="alert">
+                    <p>Thank you for booking a ticket to the following events:</p>
+                    <ul>
+                    {% for event in events %}
+                        <li>{{event}}</li>    
+                    {% endfor %}      
+                    </ul>
+                </div>
+            {% else %}
+                <div style="text-align: center;" class="jumbotron text-light">
+                    <h4>You have not placed any orders yet!</h4>
+                </div>
+            {% endif %}
+        {% else %}
+        <div class="row">
+            <div class="col-12 col-lg-6 offset-lg-4">
+                {% for event in events %}
+                    <div class="card shadow mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4 text-center"><img class="img-fluid border rounded shadow" src="/media/{{event.event.image}}"></div>
+                                <div class="col">
+                                    <p class="mt-2"><strong>{{event.event.name}}</strong></p>
+                                    <p class="mt-2"><i class="fa fa-rupee"></i><strong>{{event.event.fee}}</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="team-boxed">
+        <div class="container">
+            
+            <div class="intro">
+                <h2 class="text-center">Team </h2>
+            </div>
+            
+            
+            <div class="row people">
+                <div class="col-md-6 col-lg-4 item">
+                    <div class="box"><img class="rounded-circle" src="{% static "assets/img/vibha.png" %}">
+                        <h3 class="name">Vibha Kurpad</h3>
+                        <p class="description">Student, PES University</p>
+                        <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 item"></div>
+                <div class="col-md-6 col-lg-4 item">
+                    <div class="box"><img class="rounded-circle" src="{% static "assets/img/sparsh" %}">
+                        <h3 class="name">Sparsh Temani</h3>
+                        <p class="description">Student, PES University</p>
+                        <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+{% endblock %}
