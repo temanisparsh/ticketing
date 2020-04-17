@@ -21,7 +21,7 @@
                     </ul>
                 </div>
             {% else %}
-                <div style="text-align: center;" class="jumbotron text-light">
+                <div style="text-align: center;background-color: hsla(210, 29%, 24%, 0.836);" class="ml-auto jumbotron text-light">
                     <h4>Your Cart is Empty!</h4>
                     <h6 style="color: white;" class=""><a href="/events">Click here</a> to explore our events</h6>
                 </div>
@@ -30,15 +30,17 @@
         <div class="row">
             <div class="col-12 col-lg-6 offset-lg-4">
                 {% for event in events %}
-                    <div class="card shadow mb-3" style="background-color: #2c3e50;">
+                    <div class="card shadow mb-3" style="background-color: #2c3e50a2;">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-4 text-center"><img class="img-fluid border rounded shadow" src="/media/{{event.event.image}}"></div>
-                                <div class="col">
-                                    <p class="mt-2"><strong>{{event.event.name}}</strong></p>
+                                <div class="col-8 text-center"><img class="img-fluid border rounded shadow" src="/media/{{event.event.image}}"></div>
+                                <div class="col-4">
+                                    <a class="mt-2" href="{% url "event" pk=event.event.pk %}"><strong>{{event.event.name}}</strong></a>
                                     <p class="mt-2"><i class="fa fa-rupee"></i><strong>{{event.event.fee}}</strong></p>
-                                    <a href="{% url "delete" pk=event.event.pk %}" role="button" class="btn btn-danger">X</a>
+                                    <p class="mt-2"><strong>{{event.event.date}}</strong></p>
+                                    <a href="{% url "delete" pk=event.event.pk %}" role="button" class="btn btn-danger" style="height: 30px">X</a>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
