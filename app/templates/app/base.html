@@ -18,7 +18,6 @@
 </head>
 
 <body>
-    <!-- Start: Dark NavBar -->
     <div class="">
         <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
             <div class="container-fluid"><a class="navbar-brand" href="/">Ticketing</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -47,15 +46,13 @@
             </div>
         </nav>
     </div>
-    <!-- End: Dark NavBar -->
     {% block content %}
     {% endblock %}
-    <!-- Start: Footer Dark -->
     <div class="footer-dark">
         <footer>
             <div class="container">
                 <div class="row">
-                    <!-- Start: Services -->
+            
                     <div class="col-sm-6 col-md-3 item">
                         <h3>Categories</h3>
                         <ul>
@@ -64,33 +61,32 @@
                             {% endfor %}
                         </ul>
                     </div>
-                    <!-- End: Services -->
-                    <!-- Start: About -->
+            
+            
                     <div class="col-sm-6 col-md-3 item">
                         <h3>About</h3>
                         <ul>
                             <li><a href="/about">Team</a></li>
                         </ul>
                     </div>
-                    <!-- End: About -->
-                    <!-- Start: Footer Text -->
+            
+            
                     <div class="col-md-6 item text">
                         <h3>Ticketing</h3>
                         <p>Ticketing is an extension to one of the Assignment questions which basically aims at extending the functionality of the web app to register more events with categories with a systematic way to browse through the events and various categories along with a Payment page too.
                             This will be made easy to use with the addition of a smooth UI flow using Bootstrap in the page.</p>
                     </div>
-                    <!-- End: Footer Text -->
-                    <!-- Start: Social Icons -->
+            
+            
                     <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
-                    <!-- End: Social Icons -->
+            
                 </div>
-                <!-- Start: Copyright -->
+        
                 <p class="copyright">Ticketing © 2020</p>
-                <!-- End: Copyright -->
+        
             </div>
         </footer>
     </div>
-    <!-- End: Footer Dark -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -3,30 +3,29 @@
 
 
 {% block content %}
-    <!-- Start: Projects Horizontal -->
     <div class="projects-horizontal">
         <div class="container">
-            <!-- Start: Intro -->
+    
             <div class="intro">
                 <h2 class="text-center">Events</h2>
                 <p class="text-center">Here is a list of all events.</p>
             </div>
-            <!-- End: Intro -->
-            <!-- Start: Projects -->
+    
+    
             <div class="row projects">
                 {% for event in events %}
                     <div class="col-sm-6 item">
                         <div class="row">
                             <div class="col-md-12 col-lg-5"><a href="{% url "event" pk=event.pk %}"><img class="img-fluid" src="/media/{{event.image}}"></a></div>
                             <div class="col">
-                                <h3 class="name">{{event.name}}</h3>
+                                <h3 class="name"><a href="{% url "event" pk=event.pk %}">{{event.name}}</a></h3>
                                 <p class="description">{{event.descirption}}</p>
                             </div>
                         </div>
                     </div>
                 {% endfor %}
             </div>
-            <!-- End: Projects -->
+    
         </div>
     </div>
 {% endblock %}

@@ -3,7 +3,6 @@
 
 
 {% block content %}
-    <!-- Start: Login Form Dark -->
     <div class="login-dark">
         <form method="post">{% csrf_token %}
             <h2 class="sr-only">Login Form</h2>
@@ -18,5 +17,4 @@
             <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Log In</button></div><a class="already" href="/signup">Don't have an account, Sign up here!</a></form>
             
     </div>
-    <!-- End: Login Form Dark -->
 {% endblock %}
