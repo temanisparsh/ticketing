@@ -59,12 +59,9 @@
                         <hr style="background-color: #ffffff;">
                         <div class="row">
                             <div class="col text-right">
-                                <form method="post">
-                                    {% csrf_token %}
                                     <div class="form-group">
-                                        <button style="background-color: #3498db; border: none;" class="btn btn-primary btn-block" type="submit">Pay Now!</button>
+                                        <a href="/payment" role="button" style="background-color: #3498db; border: none;" class="btn btn-primary btn-block" type="submit">Pay Now!</a>
                                     </div>
-                                </form>
                             </div>
                         </div>
                     </div>

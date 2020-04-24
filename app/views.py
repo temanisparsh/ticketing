@@ -89,6 +89,7 @@ def signup(request):
     else:
         return render(request, 'app/signup.html', {'events': events, 'categories': categories, 'err': False})
 
+@login_required(login_url='/login')
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect('/')
@@ -99,23 +100,13 @@ def cart(request):
     categories = CategoryModel.objects.all()
     user = request.user
 
-    if request.method == 'POST':
-        events = CartModel.objects.filter(user= user)
-        event_name = []
-        for i in events:
-            event_name.append(i.event.name)
-            TicketModel.objects.create(user = user, event = i.event)
-            i.delete()
-        totalcost = 0
-        return render(request, 'app/cart.html', {'events': event_name, 'categories': categories, 'empty': True ,'isLoggedIn': True, 'payment': True})
-    else:
-        events = CartModel.objects.filter(user= user)
-        totalcost = 0
-        for i in events:
-            totalcost += i.event.fee
-        empty = False
-        if totalcost == 0:
-            empty = True
+    events = CartModel.objects.filter(user= user)
+    totalcost = 0
+    for i in events:
+        totalcost += i.event.fee
+    empty = False
+    if totalcost == 0:
+        empty = True
 
     return render(request, 'app/cart.html', {'events': events, 'categories': categories, 'empty': empty, 'totalcost': totalcost, 'isLoggedIn': True})
 
@@ -141,7 +132,8 @@ def about(request):
     categories = CategoryModel.objects.all()
 
     return render(request, 'app/about.html', {'events': events, 'categories': categories, 'isLoggedIn': True})
-
+    
+@login_required(login_url='/login')
 def delete(request, pk):
 
     event = EventModel.objects.get(pk = pk)
@@ -149,3 +141,30 @@ def delete(request, pk):
     cartItem = CartModel.objects.filter(user = user, event = event)
     cartItem.delete()
     return HttpResponseRedirect('/cart')
+
+@login_required(login_url='/login')
+def payment(request):
+
+    categories = CategoryModel.objects.all()
+    user = request.user
+
+    if request.method == 'POST':
+        events = CartModel.objects.filter(user= user)
+        event_name = []
+        for i in events:
+            event_name.append(i.event.name)
+            TicketModel.objects.create(user = user, event = i.event)
+            i.delete()
+        totalcost = 0
+        return render(request, 'app/payment.html', {'events': event_name, 'categories': categories, 'empty': True ,'isLoggedIn': True, 'payment': True})
+    else:
+        events = CartModel.objects.filter(user= user)
+        totalcost = 0
+        for i in events:
+            totalcost += i.event.fee
+        empty = False
+        if totalcost == 0:
+            empty = True
+
+    return render(request, 'app/payment.html', {'events': events, 'categories': categories, 'empty': empty, 'totalcost': totalcost, 'isLoggedIn': True})
+
